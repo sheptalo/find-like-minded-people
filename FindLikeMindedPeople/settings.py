@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "main.apps.MainConfig"
+    "main.apps.MainConfig",
+    'Landing.apps.LandingConfig',
+    'Userprofile.apps.UserprofileConfig'
 ]
 
 MIDDLEWARE = [
@@ -106,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru-ru'
 
-TIME_ZONE = 'GMT'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
