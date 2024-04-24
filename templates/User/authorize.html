@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if user == 'AnonymousUser' %} {% if tab == 'login' %}
+    <h3>Войти</h3>
+    <form method="post">{% csrf_token %}
+        <label>
+            <input type="text" placeholder="username" name="username" id="password" required>
+        </label><br><br>
+        <label>
+            <input type="password" placeholder="password" name="password" id="password" required>
+        </label><br><br>
+    <input type="submit" value="Войти">
+    </form>
+{%  endif %} {% endif %}
+{% if tab == 'register' %}
+    Зарегистрироваться
+{% endif %}
+{%  if error %}
+<script>
+    let error = '{{ error }}'
+    if (error !== '0'){
+        alert(error)
+    }
+</script>
+{% endif %}
+</body>
+</html>
