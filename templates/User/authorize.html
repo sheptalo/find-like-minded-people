@@ -7,22 +7,23 @@
 <body>
 {% if user == 'AnonymousUser' %} {% if tab == 'login' %}
     <h3>Войти</h3>
+    {% for error in form.non_field_errors %}
+    <span class="error-message">{{ error }}</span><br>
+{% endfor %}
     <form method="post">{% csrf_token %}
-        <label>
-            <input type="text" placeholder="username" name="username" id="password" required>
-        </label><br><br>
-        <label>
-            <input type="password" placeholder="password" name="password" id="password" required>
-        </label><br><br>
+        {{ form }}
     <input type="submit" value="Войти">
     </form>
 {%  endif %} {% endif %}
-{% if tab == 'register' %}
+{% if tab == 'register' %}{% if user == 'AnonymousUser' %}
     <div>
     <h3>Зарегистрироваться</h3>
-        <form method="post">{% csrf_token %}
+        <form method="post" action="/auth/register/complete">{% csrf_token %}
         <label>
             <input type="text" placeholder="username" name="username" id="password" required>
+        </label><br><br>
+        <label>
+            <input type="text" placeholder="email" name="email" id="email" required>
         </label><br><br>
         <label>
             <input type="password" placeholder="password" name="password" id="password" required>
@@ -30,7 +31,7 @@
     <input type="submit" value="Зарегистрироваться">
     </form>
     </div>
-{% endif %}
+{% endif %} {% endif %}
 {%  if error %}
 <script>
     let error = '{{ error }}'
@@ -39,5 +40,10 @@
     }
 </script>
 {% endif %}
+<style>
+    .errorlist{
+        display: none;
+    }
+</style>
 </body>
 </html>

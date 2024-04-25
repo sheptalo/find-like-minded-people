@@ -8,6 +8,7 @@ urlpatterns = [
     path('', landing.landing, name='landing'),
     path('profile/<str:username>', user_profile.profile, name='profile'),
     path('auth/<str:_type>', user_profile.authorize, name='authorize'),
+    path('auth/register/complete', user_profile.register_user),
 ]
 
 handler404 = 'Landing.views.handler404'
