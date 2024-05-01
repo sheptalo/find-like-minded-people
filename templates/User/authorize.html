@@ -18,16 +18,11 @@
 {% if tab == 'register' %}{% if user == 'AnonymousUser' %}
     <div>
     <h3>Зарегистрироваться</h3>
-        <form method="post" action="/auth/register/complete">{% csrf_token %}
-        <label>
-            <input type="text" placeholder="username" name="username" id="password" required>
-        </label><br><br>
-        <label>
-            <input type="text" placeholder="email" name="email" id="email" required>
-        </label><br><br>
-        <label>
-            <input type="password" placeholder="password" name="password" id="password" required>
-        </label><br><br>
+        <form method="post">{% csrf_token %}
+            {% for error in form.non_field_errors %}
+                <span class="error-message">{{ error }}</span><br>
+            {% endfor %}
+            {{ form }}
     <input type="submit" value="Зарегистрироваться">
     </form>
     </div>

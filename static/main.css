@@ -1,0 +1,43 @@
+body{
+    margin: 0;
+}
+a{
+    text-decoration: 0;
+    color: gray;
+}
+.postPlace{
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 1px solid black;
+    height: max-content;
+}
+#post{
+    border: 1px solid black;
+    background: #9747FF;
+    color: white;
+}
+#post h3{
+    text-align: center;
+
+}
+#post .author{
+    text-align: right;
+
+}
+.header{
+
+    height: 3rem;
+    border-bottom: 1px gray solid;
+
+}
+.header #header_main{
+        margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 10px;
+    width: 100%;
+}
+.profile{
+
+    position: absolute;
+    right: 20%;
+}
