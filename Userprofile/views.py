@@ -52,7 +52,7 @@ def authorize(request):
                                                            'user': str(user)})
 
     else:
-        return HttpResponseRedirect(f'/profile/{request.user.username}')  # TODO redirect('main')
+        return HttpResponseRedirect(f'/user/{request.user.username}')  # TODO redirect('main')
 
 
 def logout_func(request):

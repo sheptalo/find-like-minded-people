@@ -1,14 +1,11 @@
 body{
     margin: 0;
 }
-a{
-    text-decoration: 0;
-    color: gray;
-}
+
 .postPlace{
     margin-left: 20%;
     margin-right: 20%;
-    border: 1px solid black;
+    border: 0;
     height: max-content;
 }
 #post{
@@ -17,27 +14,32 @@ a{
     color: white;
 }
 #post h3{
-    text-align: center;
-
+    margin-left: 1%;
+    text-align: left;
 }
 #post .author{
+    margin-right: 1%;
     text-align: right;
-
 }
 .header{
-
     height: 3rem;
+    width: 100%;
     border-bottom: 1px gray solid;
-
 }
 .header #header_main{
-        margin-left: 20%;
+    margin-left: 20%;
     margin-right: 20%;
     margin-top: 10px;
-    width: 100%;
 }
 .profile{
-
     position: absolute;
     right: 20%;
+}
+.link{
+    text-decoration: 0;
+    color: gray;
+}
+.post-link{
+    text-decoration: 0;
+    color: white;
 }

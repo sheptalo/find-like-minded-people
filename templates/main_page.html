@@ -1,24 +1,30 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <title>Главная</title>
     <link type="text/css" rel="stylesheet" href="{% static 'main.css' %}">
 
 </head>
+
 <body>
-<div class="header">
-</div>
+<script> let i = 0</script>
+<div class="header"></div>
 <div class="postPlace">
     {% for posted in objects %}
-    	<div id="post">
-        <h3>{{ posted.title }}</h3>
+    	<div id="post"><a href="/find/{{ posted.id }}" class="post-link">
+        <h3>{{ posted.title }}</h3></a>
         <div class="author">автор: {{ posted.author.username }}</div>
         <div class="datetime">Создано: {{ posted.created_at }}</div>
         </div>
     {% endfor %}
+</div>
+{{ i }}
+<div class="self-delete">
 <script src="{% static 'header.js' %}"></script>
 </div>
 </body>
+
 </html>
