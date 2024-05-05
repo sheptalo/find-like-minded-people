@@ -5,22 +5,19 @@
     <meta charset="UTF-8">
     <title>{{ Post.title }}</title>
     <link type="text/css" rel="stylesheet" href="{% static 'main.css' %}">
-
 </head>
 <body>
-<div class="header">
-</div>
+<script src="{% static 'header.js' %}"></script>
+
 <div id="content-main">
-    <a href="/main">На главную</a>
-    {{ Post.title }}<br><br>
-    {{ Post.body }}
-    <a href="/user/{{ Post.author }}">{{ Post.author }}</a>
-</div>
-<div id="footer">
+    <a href="/main" class="link">На главную</a><br>
+    <h2>{{ Post.title }}</h2><br><br>
+    <div class="content-body">{{ Post.body }}</div><br>
+    Автор: <a href="/user/{{ Post.author }}" class="link">{{ Post.author }}</a><br>
+    <div id="footer">
     {{  Post.created_at }}
+    </div>
 </div>
-<div class="self-delete">
-    <script src="{% static 'header.js' %}"></script>
-</div>
+
 </body>
 </html>

@@ -1,5 +1,8 @@
+@import 'boot.css';
+
 body{
     margin: 0;
+    font-family: 'Arial', sans-serif;
 }
 
 .postPlace{
@@ -7,11 +10,19 @@ body{
     margin-right: 20%;
     border: 0;
     height: max-content;
+    display: grid;
+    gap: 10px;
 }
 #post{
     border: 1px solid black;
+    border-radius: 15px;
     background: #9747FF;
     color: white;
+    transition: .5s;
+}
+#post:hover{
+    transform: translateY(-3%);
+    transition: .5s;
 }
 #post h3{
     margin-left: 1%;
@@ -31,10 +42,6 @@ body{
     margin-right: 20%;
     margin-top: 10px;
 }
-.profile{
-    position: absolute;
-    right: 20%;
-}
 .link{
     text-decoration: 0;
     color: gray;
@@ -42,4 +49,83 @@ body{
 .post-link{
     text-decoration: 0;
     color: white;
+}
+#content-main{
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 1px gray solid;
+    border-radius: 5px;
+}
+#content-main .content-body{
+    margin-left: 1%;
+    margin-right: 1%;
+}
+.register{
+    margin: 0 20% 0 20%;
+}
+.register .form-center{
+    margin: 0 10% 0 10%;
+    border: 1px black solid;
+    border-radius: 5px;
+    display: grid;
+    gap: 1%;
+
+}
+.register .form-center .password{
+    border-radius: 15px;
+    width: 50%;
+    margin-left: 25%;
+    height: 2rem   ;
+}
+.register .form-center .username{
+    margin-top: 10px;
+    border-radius: 15px;
+    width: 50%;
+    margin-left: 25%;
+    height: 2rem   ;
+
+}
+.register .form-center .email{
+    border-radius: 15px;
+    width: 50%;
+    margin-left: 25%;
+    height: 2rem   ;
+
+}
+.register .form-center #btn{
+    margin: 0 30% 0 30%;
+    border-radius: 15px;
+    border: 0;
+    height: 2rem   ;
+}
+.login{
+    margin: 0 20% 0 20%;
+}
+.login .form-center{
+    margin: 0 10% 0 10%;
+    border: 1px black solid;
+    border-radius: 5px;
+    display: grid;
+    gap: 1%;
+
+}
+.login .form-center .password{
+    border-radius: 15px;
+    width: 50%;
+    margin-left: 25%;
+    height: 2rem   ;
+}
+.login .form-center .username{
+    margin-top: 10px;
+    border-radius: 15px;
+    width: 50%;
+    margin-left: 25%;
+    height: 2rem   ;
+
+}
+.login .form-center #btn{
+    margin: 0 30% 0 30%;
+    border-radius: 15px;
+    border: 0;
+    height: 2rem   ;
 }

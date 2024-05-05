@@ -1,32 +1,42 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>{{ tab }}</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'main.css' %}">
+
 </head>
 <body>
-{% if user == 'AnonymousUser' %} {% if tab == 'login' %}
-    <h3>Войти</h3>
-    {% for error in form.non_field_errors %}
-    <span class="error-message">{{ error }}</span><br>
-{% endfor %}
-    <form method="post">{% csrf_token %}
-        {{ form }}
-    <input type="submit" value="Войти">
-    </form>
-{%  endif %} {% endif %}
-{% if tab == 'register' %}{% if user == 'AnonymousUser' %}
-    <div>
-    <h3>Зарегистрироваться</h3>
-        <form method="post">{% csrf_token %}
+<script src="{% static 'header.js' %}"></script>
+
+
+{% if tab == 'login' %}
+    <div class="login">
+        <h3>Войти</h3>
+        <form method="post" class="form-center">{% csrf_token %}
             {% for error in form.non_field_errors %}
                 <span class="error-message">{{ error }}</span><br>
             {% endfor %}
             {{ form }}
-    <input type="submit" value="Зарегистрироваться">
+            <input type="submit" value="Войти" id="btn">
+            <div>Нет аккаунта? <a href="/auth/register" class="link">Зарегистрироваться</a></div><br>
+        </form>
+    </div>
+{%  endif %}
+{% if tab == 'register' %}
+    <div class="register">
+    <h3>Зарегистрироваться</h3>
+        <form method="post" class="form-center">{% csrf_token %}
+            {% for error in form.non_field_errors %}
+                <span class="error-message">{{ error }}</span><br>
+            {% endfor %}
+            {{ form }}
+    <input type="submit" value="Зарегистрироваться" id="btn"><br>
+            <div>уже есть аккаунт? <a href="/auth/login" class="link">Войти</a></div><br>
     </form>
     </div>
-{% endif %} {% endif %}
+{% endif %}
 {%  if error %}
 <script>
     let error = '{{ error }}'
@@ -40,5 +50,6 @@
         display: none;
     }
 </style>
+
 </body>
 </html>

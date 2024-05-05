@@ -10,8 +10,8 @@
 </head>
 
 <body>
-<script> let i = 0</script>
-<div class="header"></div>
+<script src="{% static 'header.js' %}"></script>
+
 <div class="postPlace">
     {% for posted in objects %}
     	<div id="post"><a href="/find/{{ posted.id }}" class="post-link">
@@ -20,10 +20,6 @@
         <div class="datetime">Создано: {{ posted.created_at }}</div>
         </div>
     {% endfor %}
-</div>
-{{ i }}
-<div class="self-delete">
-<script src="{% static 'header.js' %}"></script>
 </div>
 </body>
 
