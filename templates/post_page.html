@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <title>{{ Post.title }}</title>
     <link type="text/css" rel="stylesheet" href="{% static 'main.css' %}">
+    <script>let user = '{{ reg }}';</script>
+
 </head>
 <body>
 <script src="{% static 'header.js' %}"></script>
-
-<div id="content-main">
+<br>
+<div id="content-main" class="card">
     <a href="/main" class="link">На главную</a><br>
-    <h2>{{ Post.title }}</h2><br><br>
-    <div class="content-body">{{ Post.body }}</div><br>
-    Автор: <a href="/user/{{ Post.author }}" class="link">{{ Post.author }}</a><br>
+    <h2 class="card-title">{{ Post.title }}</h2><br><br>
+    <h5 class="card-subtitle mb-2 text-body-secondary">Автор: <a href="/user/{{ Post.author }}" class="text-body-secondary">{{ Post.author }}</a></h5><br>
+    <div class="content-body card-body">{{ Post.body }}</div><br>
+
     <div id="footer">
     {{  Post.created_at }}
     </div>

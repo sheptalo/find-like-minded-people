@@ -22,9 +22,12 @@ def profile(request, username=None):
 
 def authorize(request):
     user = request.user
-
+    print(user.id)
     if request.method == 'GET' and request.user.is_anonymous:
-        return render(request, 'User/authorize.html', {'tab': 'login', 'user': str(user), 'form': LoginForm()})
+        return render(request, 'User/authorize.html', {'tab': 'login',
+                                                       'user': str(user),
+                                                       'form': LoginForm(),
+                                                       'reg': request.user.username})
     elif request.method == 'POST' and request.user.is_anonymous:
 
         form = LoginForm(request.POST)
@@ -44,12 +47,14 @@ def authorize(request):
                 form.add_error(None, 'Неправильное имя или пароль')
                 return render(request, 'User/authorize.html', {'form': form,
                                                                'tab': 'login',
-                                                               'user': str(user)})
+                                                               'user': str(user),
+                                                               'reg': request.user.username})
 
         else:
             return render(request, 'User/authorize.html', {'form': form,
                                                            'tab': 'login',
-                                                           'user': str(user)})
+                                                           'user': str(user),
+                                                           'reg': request.user.username})
 
     else:
         return HttpResponseRedirect(f'/user/{request.user.username}')  # TODO redirect('main')
@@ -63,7 +68,10 @@ def logout_func(request):
 def register_user(request):
     user = request.user
     if request.method == 'GET' and request.user.is_anonymous:
-        return render(request, 'User/authorize.html', {'tab': 'register', 'user': str(user), 'form': RegisterForm()})
+        return render(request, 'User/authorize.html', {'tab': 'register',
+                                                       'user': str(user),
+                                                       'form': RegisterForm(),
+                                                       'reg': request.user.username})
 
     if request.method == 'POST' and request.user.is_anonymous:
 
@@ -88,11 +96,17 @@ def register_user(request):
             if name_user:
                 form.add_error(None, 'Пользователь с таким именем уже зарегистрирован, выберите другое.')
                 return render(request, 'User/authorize.html',
-                              {'tab': 'register', 'user': str(user), 'form': form})
+                              {'tab': 'register',
+                               'user': str(user),
+                               'form': form,
+                               'reg': request.user.username})
             elif email_user:
                 form.add_error(None, 'На эту почту зарегистрирован аккаунт Войти?')
                 return render(request, 'User/authorize.html',
-                              {'tab': 'register', 'user': str(user), 'form': form})
+                              {'tab': 'register',
+                               'user': str(user),
+                               'form': form,
+                               'reg': request.user.username})
 
             user = User.objects.create_user(username=username,
                                             password=password,

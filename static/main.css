@@ -1,5 +1,23 @@
-@import 'boot.css';
 
+@import 'boot.css';
+:root {
+    --bs-primary: #AD00FF;
+}
+.btn-outline-success{
+    --bs-btn-border-color: #CD3EFF;
+    --bs-btn-hover-bg: #CD3EFF;
+    --bs-btn-hover-border-color: #CD3EFF;
+    color:gray;
+}
+.btn-outline-primary{
+    --bs-btn-border-color: #AD00FF;
+    --bs-btn-hover-bg: #AD00FF;
+    --bs-btn-hover-border-color: #AD00FF;
+}
+.card-footer{
+    background: #9747FF;
+
+}
 body{
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -14,27 +32,13 @@ body{
     gap: 10px;
 }
 #post{
-    border: 1px solid black;
-    border-radius: 15px;
-    background: #9747FF;
-    color: white;
     transition: .5s;
 }
 #post:hover{
     transform: translateY(-3%);
     transition: .5s;
 }
-#post h3{
-    margin-left: 1%;
-    text-align: left;
-}
-#post .author{
-    margin-right: 1%;
-    text-align: right;
-}
 .header{
-    height: 3rem;
-    width: 100%;
     border-bottom: 1px gray solid;
 }
 .header #header_main{
@@ -48,7 +52,7 @@ body{
 }
 .post-link{
     text-decoration: 0;
-    color: white;
+    color: black;
 }
 #content-main{
     margin-left: 20%;

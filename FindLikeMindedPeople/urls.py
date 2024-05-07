@@ -14,6 +14,7 @@ urlpatterns = [
     path('find/<int:_id>', main.post_page, name='post'),
     path('error/', main.error, name='page not found'),
     path('write/', main.error, name='новый пост'),
+    path('search/', main.find_post, name='новый пост'),
 ]
 
 handler404 = 'Landing.views.handler404'
