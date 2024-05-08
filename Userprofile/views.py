@@ -5,19 +5,20 @@ from django.shortcuts import render, redirect
 
 from Userprofile.forms import LoginForm, RegisterForm
 from Userprofile.models import UserProfileModel
+from main.models import Post
 
 
 # Create your views here.
 def profile(request, username=None):
     try:
         user = User.objects.get(username=username)
+        posts = Post.objects.filter(author=user)
     except:
         user = None
 
-    if username:
-        if user:
-            return HttpResponse("username: {username}".format(username=username))
-    return HttpResponse("None")
+    if not username or not user:
+        return HttpResponse("None")
+    return HttpResponse(f"username: {username}")
 
 
 def authorize(request):

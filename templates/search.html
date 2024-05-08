@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Поисковик</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'main.css' %}">
+    <script>let user = '{{ reg }}';</script>
+
+</head>
+<body>
+<script src="{% static 'header.js' %}"></script>
+
+<br>
+
+<div class="searcher">
+    <form class="d-flex" role="search" method="post">{% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="text" value="{{ last }}">
+        <button class="btn btn-outline-success" type="submit">Найти</button>
+    </form>
+</div>
+<br>
+<div class="postPlace">
+    {% if err != '' %}Ничего не найдено{% endif %}
+    {% for posted in objects %}
+
+        <div class="card text-center" id="post">
+
+            <div class="card-header">
+              Автор: {{ posted.author.username }}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ posted.title }}</h5>
+              <p class="card-text">Краткое описание</p>
+              <a href="/find/{{ posted.id }}" class="post-link btn btn-outline-primary">Открыть</a>
+            </div>
+            <div class="card-footer text-body-secondary">
+              {{ posted.created_at }}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+</body>
+</html>

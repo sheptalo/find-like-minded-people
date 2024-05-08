@@ -19,10 +19,7 @@ nav.innerHTML = '<div id="header_main" class="container-fluid">' +
     '<li class="nav-item"><a href=\'/main\' class="link nav-link">Главная</a></li> ' +
     '<li class="nav-item"><a href=\'/\' class="link nav-link">Написать</a></li> ' +
     txt +
-    '<form class="d-flex" role="search" method="get">' +
-    '<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">' +
-    '<button class="btn btn-outline-success" type="submit">Найти</button>' +
-    '</form>' +
+    '<li class="nav-item"><a href=\'/search\' class="link nav-link">Поиск</a></li> ' +
     '</div>' +
     '</div><br>'
 document.body.appendChild(nav);

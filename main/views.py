@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
@@ -37,4 +37,23 @@ def parameters(request):
 
 
 def find_post(request):
-    return redirect('/main')
+    err = ''
+
+    if request.method == 'POST':
+
+        search = request.POST.get('text')
+        posts = Post.objects.filter(title__icontains=search).order_by('-created_at')
+
+        if posts.count() == 0:
+            posts = Post.objects.all().order_by('-created_at')
+            err = 'None'
+
+        return render(request, 'search.html', {'objects': posts,
+                                               'reg': request.user.username,
+                                               'err': err,
+                                               'last': search})
+
+    posts = Post.objects.all().order_by('-created_at')
+    return render(request, 'search.html', {'objects': posts, 'reg': request.user.username, 'err': err})
+
+
